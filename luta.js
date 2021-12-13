@@ -122,7 +122,7 @@ var lutador =  new function(){
             console.log(`${a}->${n} , ${this.vec}`);
             if (n===1) {
                 this.estados[lutador.corrente].num=lutador.estados[lutador.corrente].frameIni; 
-                //  somMove.play();
+                 somMove.play();
             }
         }
     }
