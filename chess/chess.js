@@ -104,3 +104,34 @@ document.querySelector('#header').innerHTML = message
 //document.querySelector('#table').innerHTML = message
 // Log to console
 console.log(table)
+
+function createChessboard() {
+    const board = document.getElementById('chessboard');
+  
+    const initialBoard = table
+  
+    // Criar as casas do tabuleiro
+    for (let row = 0; row < 8; row++) {
+      for (let col = 0; col < 8; col++) {
+        const square = document.createElement('div');
+        square.classList.add('square');
+        square.classList.add((row + col) % 2 === 0 ? 'white' : 'black');
+  
+        // Adicionar as peças
+        const piece = initialBoard[row][col];
+        if (piece) {
+          const pieceElement = document.createElement('span');
+          pieceElement.classList.add('piece');
+          pieceElement.textContent = piece;
+          square.appendChild(pieceElement);
+        }
+  
+        // Adicionar a casa ao tabuleiro
+        board.appendChild(square);
+      }
+    }
+  }
+  
+  // Chamar a função para criar o tabuleiro
+  createChessboard();
+  
