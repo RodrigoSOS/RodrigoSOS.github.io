@@ -1,3 +1,4 @@
+var table
 function validInput(x,y,color){
     if (x>8 || x<-1 || y>8 || y<-1)
         return false
@@ -60,11 +61,11 @@ function horse(x,y,color){
 
 
 console.log(bisp(3,4))
-console.log(horse(3,4))
+//console.log(horse(3,4))
 
 
 
-var table;
+
 function drawTable(x,y){
     table = []
     for (i=0;i<x;i++){
