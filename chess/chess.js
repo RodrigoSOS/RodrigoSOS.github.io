@@ -7,7 +7,7 @@ function validInput(x,y,color){
 
 function rock(x,y,color){
     var valid = []
-    for (i=x-1;i>0;i--){
+    for (i=x-1;i>-1;i--){
         if(validInput(i,y,color))
             valid.push([i,y])
         else
@@ -16,7 +16,7 @@ function rock(x,y,color){
         
     for (i=x+1;i<8;i++)
         valid.push([i,y])
-    for (i=y-1;i>0;i--)
+    for (i=y-1;i>-1;i--)
         valid.push([x,i])
     for (i=y+1;i<8;i++)
         valid.push([x,i])
@@ -25,13 +25,13 @@ function rock(x,y,color){
 }
 function bisp(x,y,color){
     var valid = []
-    for (i=x-1,ii=y-1; i>0 && ii>0; i--, ii--)
+    for (i=x-1,ii=y-1; i>-1 && ii>-1; i--, ii--)
         valid.push([i,ii])   
     for (i=x+1,ii=y+1; i<8 && ii<8; i++, ii++)
         valid.push([i,ii])
-    for (i=x-1,ii=y+1; i>0 && ii<8; i--, ii++)
+    for (i=x-1,ii=y+1; i>-1 && ii<8; i--, ii++)
         valid.push([i,ii])
-    for (i=x+1,ii=y-1; i<8 && ii>0; i++, ii--)
+    for (i=x+1,ii=y-1; i<8 && ii>-1; i++, ii--)
         valid.push([i,ii])
     return valid
 }
@@ -61,8 +61,8 @@ function putTable(){
     putPice(1,0,"♟");putPice(1,1,"♟");putPice(1,2,"♟");putPice(1,3,"♟");
     putPice(1,4,"♟");putPice(1,5,"♟");putPice(1,6,"♟");putPice(1,7,"♟");
 
-    putPice(2,0,"♙");putPice(2,1,"♙");putPice(2,2,"♙");putPice(2,3,"♙");
-    putPice(2,4,"♙");putPice(2,5,"♙");putPice(2,6,"♙");putPice(2,7,"♙");
+    putPice(6,0,"♙");putPice(6,1,"♙");putPice(6,2,"♙");putPice(6,3,"♙");
+    putPice(6,4,"♙");putPice(6,5,"♙");putPice(6,6,"♙");putPice(6,7,"♙");
 
     putPice(7,0,"♖");putPice(7,1,"♘");putPice(7,2,"♗");putPice(7,3,"♕");
     putPice(7,4,"♔");putPice(7,5,"♗");putPice(7,6,"♘");putPice(7,7,"♖");
