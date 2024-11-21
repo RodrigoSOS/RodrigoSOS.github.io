@@ -1,3 +1,13 @@
+const target = document.getElementById('target');
+
+target.addEventListener('mouseover', () => {
+	target.style.background = '#000';
+}, false);
+
+target.addEventListener('mouseleave', () => {
+	target.style.background = '#0091EA';
+}, false);
+
 var table
 function validInput(x,y,color){
     if (x>8 || x<-1 || y>8 || y<-1)
