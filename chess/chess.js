@@ -1,4 +1,6 @@
 function validInput(x,y,color){
+    if (x>8 || x<-1 || y>8 || y<-1)
+        return false
     if (table[x][y] == "" || table[x][y] == null) {
 
     }
@@ -35,9 +37,30 @@ function bisp(x,y,color){
         valid.push([i,ii])
     return valid
 }
+function horse(x,y,color){
+    var valid = []
+    if (validInput(x-2,y-1,color))
+        valid.push([x-2,y-1]) 
+    if (validInput(x-2,y+1,color))
+        valid.push([x-2,y+1])
+    if (validInput(x-1,y-2,color))
+        valid.push([x-1,y-2])
+    if (validInput(x-1,y+2,color))
+        valid.push([x-1,y+2])
+    if (validInput(x+2,y-1,color))
+        valid.push([x+2,y-1]) 
+    if (validInput(x+2,y+1,color))
+        valid.push([x+2,y+1])
+    if (validInput(x+1,y-2,color))
+        valid.push([x+1,y-2])
+    if (validInput(x+1,y+2,color))
+        valid.push([x+1,y+2])
+    return valid
+}
 
 
-console.log(bisp(1,1))
+console.log(bisp(3,4))
+console.log(horse(3,4))
 
 
 
