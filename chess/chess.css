@@ -20,12 +20,18 @@
   
   .square.white {
     background-color: #f0d9b5;
+  }  
+  .square.white.highlight {
+    background-color: #f0f0f0;
   }
   
   .square.black {
     background-color: #b58863;
   }
-  
+  .square.black.highlight  {
+    background-color: #adadad;
+  }
+
   /* Estilos para as peças */
   .piece {
     font-size: 36px;

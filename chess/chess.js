@@ -1,12 +1,42 @@
-const target = document.getElementById('target');
+const board = document.getElementById('chessboard');
 
-target.addEventListener('mouseover', () => {
-	target.style.background = '#000';
-}, false);
+var cursor = []
+function changeCursor(x,y){
+    offHighlightSquare(cursor[0],cursor[1])
+    cursor = [x,y]
+    highlightSquare(cursor[0],cursor[1])
+} 
 
-target.addEventListener('mouseleave', () => {
-	target.style.background = '#0091EA';
-}, false);
+board.addEventListener("mouseover",(event) => {
+        event.target.style.color = "orange";
+        if(event.target.classList.contains('square')){
+            x=event.target.id[0]
+            y=event.target.id[1]
+            changeCursor(x,y)
+            //console.log (event.target.id, table[x][y])
+            if (table[x][y]=="♜"){
+                console.log(rock(x,y,"black"))
+                
+            }
+
+        }
+        
+})
+board.addEventListener("mouseout",(event) => {
+    event.target.style.color = "";
+    //offHighlightSquare(cursor[0],cursor[1])
+});
+
+function highlightSquare(x,y){
+    document.getElementById(x.toString()+y.toString()).classList.add("highlight");
+}
+function offHighlightSquare(x,y){
+    var hight = document.getElementsByClassName("highlight")
+    for(var i = hight.length - 1; i >= 0; i--)
+        {
+            hight[i].classList.remove("highlight")
+        }
+}
 
 var table
 function validInput(x,y,color){
@@ -122,6 +152,7 @@ function createChessboard() {
         const square = document.createElement('div');
         square.classList.add('square');
         square.classList.add((row + col) % 2 === 0 ? 'white' : 'black');
+        square.setAttribute("id", (row).toString()+(col).toString());
   
         // Adicionar as peças
         const piece = initialBoard[row][col];
